@@ -9,7 +9,6 @@ const withAuth = (WrappedComponent) => {
 
     useEffect(() => {
       const token = localStorage.getItem('token');
-      console.log(token)
       if (!token) {
         router.push('/login');
         return;
@@ -22,8 +21,6 @@ const withAuth = (WrappedComponent) => {
     if (isLoading) {
       return <div>Loading...</div>;
     }
-
-    console.log(isAuthorized)
 
     return isAuthorized ? <WrappedComponent {...props} /> : null;
   };

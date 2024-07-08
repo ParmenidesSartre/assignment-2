@@ -4,6 +4,7 @@ const AddModal = ({ patients, doctors, onClose, onSave }) => {
   const [newRecord, setNewRecord] = useState({
     patientId: '',
     doctorId: '',
+    date: '',
     diagnosis: '',
     treatmentPlan: '',
     medications: '',
@@ -43,7 +44,7 @@ const AddModal = ({ patients, doctors, onClose, onSave }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
-        <h2 className="text-lg font-semibold mb-4">Add Medical Record</h2>
+        <h2 className="text-lg font-semibold mb-4">Add Appointment</h2>
         <form className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
@@ -81,6 +82,33 @@ const AddModal = ({ patients, doctors, onClose, onSave }) => {
                   </option>
                 ))}
               </select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="date">
+                Appointment Date
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="date"
+                type="date"
+                value={newRecord.date}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="followUp">
+                Follow-Up Date
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="followUp"
+                type="date"
+                value={newRecord.followUp}
+                onChange={handleInputChange}
+              />
             </div>
           </div>
 
@@ -124,21 +152,6 @@ const AddModal = ({ patients, doctors, onClose, onSave }) => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="followUp">
-                Follow-Up Date
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="followUp"
-                type="date"
-                value={newRecord.followUp}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="h-full">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="notes">
                 Notes
@@ -150,6 +163,9 @@ const AddModal = ({ patients, doctors, onClose, onSave }) => {
                 onChange={handleInputChange}
               />
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="h-full">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="allergies">
                 Allergies

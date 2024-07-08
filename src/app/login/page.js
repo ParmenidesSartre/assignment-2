@@ -26,7 +26,11 @@ export default function Login() {
 
     if (res.ok) {
       localStorage.setItem('token', data.token); 
-      router.push('/medical-record');
+      if ( data.user.role == 'Patient' ) {
+        router.push('/dashboard');
+      } else {
+        router.push('/appointments');
+      }
     } else {
       setError(data.error);
     }
@@ -34,18 +38,18 @@ export default function Login() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-    <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-      <Image
-        className="mx-auto h-20 w-auto"
-        src="/5980109.png"
-        alt="Fake Telemedicine App"
-        width={140}
-        height={140}
-      />
-      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        Fake Telemedicine App
-      </h2>
-    </div>
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <Image
+          className="mx-auto h-20 w-auto"
+          src="/5980109.png"
+          alt="Fake Telemedicine App"
+          width={140}
+          height={140}
+        />
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
+          Fake Telemedicine App
+        </h2>
+      </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-6" onSubmit={handleSubmit}>

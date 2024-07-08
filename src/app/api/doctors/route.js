@@ -11,8 +11,6 @@ export async function GET() {
       },
     });
 
-    console.log()
-
     return NextResponse.json(doctors);
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

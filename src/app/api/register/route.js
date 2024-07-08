@@ -26,7 +26,7 @@ export async function POST(req) {
     data: {
       name,
       email,
-      role: 'PATIENT', // Default role is 'PATIENT
+      role: 'Patient', // Default role is 'PATIENT
       password: hashedPassword,
     },
   });
