@@ -4,14 +4,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap");
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background-color: black;
-}
-
 body {
   font-family: "Space Grotesk", sans-serif;
 }
